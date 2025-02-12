@@ -10,8 +10,11 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,  // Allows using Node.js in the renderer process
     //   preload: path.join(__dirname, 'preload.js')  // Optional: used for adding specific functionalities
-    }
-  });
+    },
+    title:'',
+    autoHideMenuBar: true
+    });
+
 
   // Load the app from Vite's dev server running on localhost
   win.loadURL('http://localhost:5173');  // Your Vite app should be running here
