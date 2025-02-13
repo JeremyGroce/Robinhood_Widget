@@ -1,14 +1,27 @@
 import { useState } from 'react'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Login from './pages/login'
+import Dashboard from './pages/dashboard'
 
 
-function App() {
-  const [count, setCount] = useState(0)
 
+
+function App() 
+{
   return (
-    <>
-    <h1>AJIOFJDSIODSIOFJSIOD</h1>
-    </>
+
+    <Router>
+
+      <Routes>
+        {/* Login Screen */}
+        <Route path="/" element={<Login/>}/>
+
+        {/* Dashboard post-login */}
+        <Route path="/dashboard" element={<Dashboard/>}/>
+      </Routes>
+
+    </Router>
+   
   )
 }
 
