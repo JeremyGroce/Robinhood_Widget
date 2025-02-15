@@ -7,8 +7,11 @@ function Login ()
 {
     return(
         <div className="login-page">
-            <h1>login page</h1>
-            <Link to= "/dashboard">Go to Dashboard</Link>
+            <div className="login-component">
+                
+
+            </div>
+            {/* <Link to= "/dashboard">Go to Dashboard</Link> */}
         </div>
     )
 }

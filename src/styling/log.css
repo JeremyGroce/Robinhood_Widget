@@ -1,8 +1,28 @@
 
 .login-page
 {
-    background-color: aquamarine;
+    background-image: url(../../public/Login\ Image.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
     height: 100vh;
     width: 100vw;
     color: black;
 }
+
+/* Get rid of default html padding/margin */
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+
+/* .login-component
+{
+    position: relative;
+    background-color: gray;
+    height: 100px;
+    width: 200px;
+    border-radius: 5px;
+} */
