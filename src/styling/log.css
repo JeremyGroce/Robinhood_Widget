@@ -5,9 +5,60 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+
     height: 100vh;
     width: 100vw;
-    color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-component
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 23px;
+}
+
+.login-component h1
+{
+    color: white;
+    font-size: 50px;
+}
+
+.login-component h1
+{
+    font-family: 'Inter', sans-serif;
+}
+
+.login-component-credentialsBox
+{  
+    height: 80px;
+    width: 250px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.6);
+}
+
+.login-component-submitLogin-btn
+{
+    height: 40px;
+    width: 250px;
+    border: none;
+    border-radius: 5px;
+
+    background-color: #FFBB00;
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.6);
+}
+
+.login-component-submitLogin-btn p
+{
+    font-size: large;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 /* Get rid of default html padding/margin */
@@ -16,13 +67,3 @@
     margin: 0;
     padding: 0;
 }
-
-
-/* .login-component
-{
-    position: relative;
-    background-color: gray;
-    height: 100px;
-    width: 200px;
-    border-radius: 5px;
-} */
