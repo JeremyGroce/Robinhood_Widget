@@ -32,9 +32,16 @@ function Login ()
                 </div>
 
             </div>
-            {/* <img src={logo_github} height="100" width="100"/> */}
             {/* <Link to= "/dashboard">Go to Dashboard</Link> */}
+
+            <div className="github">
+                <a href="https://github.com/JeremyGroce/Robinhood_Widget" target="_blank" rel="noopener noreferrer">
+                    <img src={logo_github} height="80" width="80"/>
+                </a>
+            </div>
+
         </div>
+
     )
 }
 

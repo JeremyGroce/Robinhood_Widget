@@ -1,5 +1,5 @@
 // main.js (Electron entry point)
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, shell } = require('electron');
 const path = require('path');
 
 function createWindow() {
@@ -18,6 +18,13 @@ function createWindow() {
 
   // Load the app from Vite's dev server running on localhost
   win.loadURL('http://localhost:5173');  // Your Vite app should be running here
+
+  win.webContents.setWindowOpenHandler(({ url }) => 
+  {
+    shell.openExternal(url);
+    return { action: "deny" };
+  });
+  
 }
 
 app.whenReady().then(createWindow);
