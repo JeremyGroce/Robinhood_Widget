@@ -76,6 +76,7 @@
 {
     transition: 0.15s;
     transform: scale(1.04);
+    cursor: pointer;
 }
 
 .login-component-submitLogin-btn p
