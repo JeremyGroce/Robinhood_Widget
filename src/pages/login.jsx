@@ -18,21 +18,36 @@ function Login ()
 
                 {/* Holds the username and password */}
                 <div className="login-component-credentialsBox">
-                
+
+                    {/* username */}
+                    <input
+                    type="text"
+                    placeholder="Username"/>
+
+                    {/* just a line between username and password */}
+                    <div className="login-component-credentialsBox-lineBreak">
+                    </div>
+
+                    {/* password */}
+                    <input
+                    type="password"
+                    placeholder="Password"/>
+
                 </div>
 
                 {/* Button for submitting username and password to route */}
                 <div className="login-component-submitLogin">
-                    <button
-                        className="login-component-submitLogin-btn"
-                    >
-                        <p>Log In</p>
-
-                    </button>
+                    <Link to= "/dashboard">
+                        <button
+                            className="login-component-submitLogin-btn"
+                        >
+                            <p>Log In</p>
+                        </button>
+                    </Link>
                 </div>
 
+
             </div>
-            {/* <Link to= "/dashboard">Go to Dashboard</Link> */}
 
             <div className="github">
                 <a href="https://github.com/JeremyGroce/Robinhood_Widget" target="_blank" rel="noopener noreferrer">

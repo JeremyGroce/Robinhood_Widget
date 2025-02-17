@@ -5,8 +5,9 @@ const path = require('path');
 function createWindow() {
   // Create a new browser window
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 700,
+    height: 400,
+    resizable: false,
     webPreferences: {
       nodeIntegration: true,  // Allows using Node.js in the renderer process
     //   preload: path.join(__dirname, 'preload.js')  // Optional: used for adding specific functionalities
