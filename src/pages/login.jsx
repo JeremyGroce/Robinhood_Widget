@@ -51,7 +51,7 @@ function Login ()
 
             <div className="github">
                 <a href="https://github.com/JeremyGroce/Robinhood_Widget" target="_blank" rel="noopener noreferrer">
-                    <img src={logo_github} height="80" width="80"/>
+                    <img src={logo_github} height="60" width="60"/>
                 </a>
             </div>
 
