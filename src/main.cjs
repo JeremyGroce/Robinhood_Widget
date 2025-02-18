@@ -1,25 +1,26 @@
 // main.js (Electron entry point)
-const { app, BrowserWindow, shell } = require('electron');
+const { app, BrowserWindow, shell, globalShortcut } = require('electron');
 const path = require('path');
+
+let win;
 
 function createWindow() {
   // Create a new browser window
-  const win = new BrowserWindow({
+  win = new BrowserWindow({
     width: 700,
     height: 400,
     resizable: false,
     webPreferences: {
-      nodeIntegration: true,  // Allows using Node.js in the renderer process
-    //   preload: path.join(__dirname, 'preload.js')  // Optional: used for adding specific functionalities
+      nodeIntegration: true,  
     },
     title:'',
     autoHideMenuBar: true
     });
 
 
-  // Load the app from Vite's dev server running on localhost
-  win.loadURL('http://localhost:5173');  // Your Vite app should be running here
+  win.loadURL('http://localhost:5173');  
 
+  // opens any external links in default browser window
   win.webContents.setWindowOpenHandler(({ url }) => 
   {
     shell.openExternal(url);
@@ -28,16 +29,41 @@ function createWindow() {
   
 }
 
-app.whenReady().then(createWindow);
+app.whenReady().then(()=>
+{
+  createWindow();
 
-// Quit the app when all windows are closed
+  // toggle minimize/restore via numpad multiply
+  globalShortcut.register('a',()=>
+  {
+    //if minimized
+    if(win.isMinimized()) 
+    {
+      win.restore();
+      win.show();
+    }
+    //if not minimized but not focused
+    else if(!win.isVisible())
+    {
+      win.show();
+    }
+    // minimize if open
+    else 
+    {
+      win.minimize();
+    }
+  });
+
+});
+
+
+
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
   }
 });
 
-// For macOS: When the app is activated (e.g., clicking on the app icon in the dock), create the window.
 app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
