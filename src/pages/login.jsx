@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import {Link} from "react-router-dom";
+import axios from "axios";
 import logo_github from "../../public/git.png";
 
 
@@ -8,6 +9,27 @@ import '../styling/log.css';
 
 function Login ()
 {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    // handle login requests
+    const handleLogin = async (e) => 
+    {
+        e.preventDefault();
+
+        // POST request
+        try
+        {
+            const response = await axios.post("http://localhost:5000/login", 
+                {
+                    username: username,
+                    password: password,
+                });
+        } catch(error) {
+            console.error(error);
+        }
+    };
+
     return(
         <div className="login-page">
 
@@ -21,8 +43,11 @@ function Login ()
 
                     {/* username */}
                     <input
-                    type="text"
-                    placeholder="Username"/>
+                        type="text"
+                        placeholder="Username"
+                        value={username}
+                        onChange={(e)=>setUsername(e.target.value)}
+                    />
 
                     {/* just a line between username and password */}
                     <div className="login-component-credentialsBox-lineBreak">
@@ -30,8 +55,11 @@ function Login ()
 
                     {/* password */}
                     <input
-                    type="password"
-                    placeholder="Password"/>
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e)=>setPassword(e.target.value)}
+                    />
 
                 </div>
 
@@ -40,6 +68,7 @@ function Login ()
                     <Link to= "/dashboard">
                         <button
                             className="login-component-submitLogin-btn"
+                            onClick={handleLogin}
                         >
                             <p>Log In</p>
                         </button>

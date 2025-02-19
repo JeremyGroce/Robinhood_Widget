@@ -1,5 +1,6 @@
 // dependencies
 const express = require('express');
+const axios = require('axios');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -8,6 +9,7 @@ const PORT = 5000;
 
 // middleware
 app.use(express.json());
+app.use(cors());
 
 // routes
 app.post('/login', (req, res) =>
