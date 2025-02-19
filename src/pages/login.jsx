@@ -28,6 +28,11 @@ function Login ()
         } catch(error) {
             console.error(error);
         }
+
+        // reset input boxes post-submit
+        setUsername("");
+        setPassword("");
+                
     };
 
     return(
