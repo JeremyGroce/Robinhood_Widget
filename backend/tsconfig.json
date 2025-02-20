@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "rootDir": "./",  // Make sure this is pointing to 'backend' or '.' (current directory)
+    "strict": true,
+    "noImplicitAny": true
+  },
+  "include": ["server.ts"],
+  "exclude": ["node_modules"]
+}
