@@ -39,10 +39,19 @@ app.get('/stocks/:symbol', async (req: Request, res: Response) =>
 {
     const {symbol} = req.params;
     const url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=${API_KEY}`;
+    console.log("request made");
 
     try{
         const response = await axios.get(url);
-        res.json(response.data);
+
+        // parse closing price from URL
+        const timeSeries = response.data["Time Series (5min)"];
+        const latestTime = Object.keys(timeSeries)[0];
+        const latestData = timeSeries[latestTime];
+
+        // get closing price
+        const closePrice = latestData["4. close"];
+        res.json({price: closePrice});
     }
     catch (error)
     {
