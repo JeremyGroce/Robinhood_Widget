@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {Link} from "react-router-dom";
+import axios from "axios";
+
+import Tickers from "../components/dashboard/tickers";
+
+import '../styling/dash.css';
 
 function Dashboard() 
 {
+    // left container
+        // stocks
+        // options
+        // crypto
 
-    return(
-        <div className="dashboard-page">
-            <h1>dashboard</h1>
-            <Link to="/">Go To Login</Link>
-        </div>
-    )
+    // right container
+        // portfolio value
+        // tickers
+        return(
+        <><Tickers/>
+            </>);
+        
+        // graph
+            
 }
 
 export default Dashboard;

@@ -1,0 +1,24 @@
+.tickers-component
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 250px;
+    height: 55px;
+}
+
+.tickers-index
+{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.tickers-index-price
+{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+

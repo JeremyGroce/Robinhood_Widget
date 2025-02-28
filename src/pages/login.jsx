@@ -9,8 +9,11 @@ import '../styling/log.css';
 
 function Login ()
 {
+    // username, password
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    // displays incorrect user/pass upon bad post request
+    const [loginError, setloginError] = useState(false);
 
     // handle login requests
     const handleLogin = async (e) => 
@@ -25,8 +28,11 @@ function Login ()
                     username: username,
                     password: password,
                 });
-        } catch(error) {
+        } 
+        // upon bad response
+        catch(error) {
             console.error(error);
+            setloginError(false);
         }
 
         // reset input boxes post-submit
@@ -45,6 +51,9 @@ function Login ()
 
                 {/* Holds the username and password */}
                 <div className="login-component-credentialsBox">
+
+                    {/* Error message if bad POST req */}
+                    {/* <div className="error"></div> */}
 
                     {/* username */}
                     <input
@@ -70,14 +79,14 @@ function Login ()
 
                 {/* Button for submitting username and password to route */}
                 <div className="login-component-submitLogin">
-                    <Link to= "/dashboard">
                         <button
                             className="login-component-submitLogin-btn"
                             onClick={handleLogin}
                         >
                             <p>Log In</p>
                         </button>
-                    </Link>
+                        <br/>
+                        <Link to= "/dashboard">access dashboard</Link>
                 </div>
 
 
