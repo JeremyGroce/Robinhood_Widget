@@ -1,0 +1,19 @@
+.portfolioValue-component
+{
+    width: 250px;
+    height: 55px;
+    background-color: #32d20a;
+    color: white;
+
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.6);
+}
