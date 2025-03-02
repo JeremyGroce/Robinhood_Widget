@@ -16,7 +16,20 @@
     grid-template-rows: auto auto auto;
     font-family: 'Inter', sans-serif;
     font-size: small;
+    border-radius: 5px;
+    transition: 0.1s;
+
 }
+
+.tickers-index:hover
+{
+    transform: scale(1.10);
+    transition: 0.1s;
+    cursor: pointer;
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.6);
+
+}
+
 
 .tickers-index-name
 {
