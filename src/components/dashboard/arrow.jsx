@@ -11,6 +11,7 @@ const Arrow = ({ value }) => {
         transform: value >= 0 ? "rotate(0deg)" : "rotate(180deg)",
         width: "30px", 
         height: "30px", 
+        color: value >= 0 ? "#32d20a" : "red"
       }}
 
 
