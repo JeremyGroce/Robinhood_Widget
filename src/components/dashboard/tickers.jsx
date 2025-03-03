@@ -1,6 +1,6 @@
 import {React, useEffect, useState} from "react";
 import Arrow from '../../components/dashboard/arrow';
-
+import axios from "axios";
 
 import '../../styling/tickers.css';
 
@@ -9,19 +9,59 @@ function Tickers({currentTicker})
     // initialize index tickers
     const [SPYprice, setSPY] = useState(0);
     const [QQQprice, setQQQ] = useState(0);
-    const [DIAprice, setDJI] = useState(0);
+    const [DIAprice, setDIA] = useState(0);
 
     // initialize percent change
     const [SPYdelta, setSPYdelta] = useState(0);
     const [QQQdelta, setQQQdelta] = useState(0);
-    const [DIAdelta, setDJIdelta] = useState(0);
+    const [DIAdelta, setDIAdelta] = useState(0);
+
 
     // populate tickers via API calls
     useEffect(()=> 
     {
+        // SPY
+        axios.get('http://localhost:5000/stocks/SPY')
+        .then((response) => 
+        {
+            const value = Number(response.data.price);
+            setSPY(value);
+        })
+        .catch(error=> 
+        {
+            console.log("|Bad Response: ", error);
+        }
+        )
+
+        // QQQ
+        axios.get('http://localhost:5000/stocks/QQQ')
+        .then((response) => 
+        {
+            const value = Number(response.data.price);
+            setQQQ(value);
+        })
+        .catch(error=> 
+        {
+            console.log("|Bad Response: ", error);
+        }
+        )
+        axios.get('http://localhost:5000/stocks/DIA')
+        .then((response) => 
+        {
+            const value = Number(response.data.price);
+            setDIA(value);
+        })
+        .catch(error=> 
+        {
+            console.log("|Bad Response: ", error);
+        }
+        )
+
+        // DIA
 
 
-    });
+
+    },[]);
 
     return(
         // container
