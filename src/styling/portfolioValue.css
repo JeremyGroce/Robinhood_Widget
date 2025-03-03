@@ -16,4 +16,11 @@
     align-items: center;
 
     box-shadow: 0px 10px 15px rgba(0,0,0,0.6);
+    transition: 0.1s;
+}
+
+.portfolioValue-component:hover
+{
+    transform: scale(1.10);
+    cursor: pointer;
 }

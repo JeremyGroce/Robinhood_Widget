@@ -1,49 +1,45 @@
-import React from "react";
-import { Line } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
+import React, {useState} from "react";
+import {Line} from "react-chartjs-2";
+import {Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, plugins} from "chart.js";
 
-// Register required Chart.js components
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip);
 
-const LineChart = () => {
-  const data = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-    datasets: [
-      {
-        data: [50, 75, 100, 125, 150, 200],
-        borderColor: "rgba(75, 192, 192, 1)",
-        backgroundColor: "rgba(75, 192, 192, 0.2)",
-        pointBackgroundColor: "rgba(75, 192, 192, 1)",
-        pointBorderColor: "#fff",
-        tension: 0.4, // Smooth curve
-      },
-    ],
-  };
+const LineChart = ({chartTitle}) => 
+{
+    // chart data
+    const data = 
+    {
+        labels: ["1", "2", "3", "4", "5","1", "2", "3", "4", "5"],
+        datasets: 
+        [
+            {
+                label: "price",
+                data: [10, 15, 5, 25, 5, 10, 15, 5, 25, 5],
+                borderColor: "#32d20a",
+                backgroundColor: "#32d20a",
+                tension: .5,
+            }
+        ]
+    }
 
-  const options = {
-    responsive: true,
-    plugins: {
-    },
-    scales: {
-      x: { grid: { display: false } },
-      y: { beginAtZero: true, grid: { color: "rgba(200, 200, 200, 0.3)" } },
-    },
-  };
+    // Chart settings
+    const options = 
+    {
+        responsive: true,
+        plugins: 
+        {
+            legend: {display: false},
+            title: { display: true, text: chartTitle},
+        },
+        scales: 
+        {        
+            x: {title: {display: false}},
+            y: {title: {display: false}, beginAtZero: true},
+        },
 
-  return (
-    <div style={{ width: "300px", margin: "20px auto" }}>
-      <Line data={data} options={options} />
-    </div>
-  );
-};
+    };
+
+    return(<Line data={data} options={options}/>);
+}
 
 export default LineChart;

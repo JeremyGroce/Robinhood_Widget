@@ -2,11 +2,12 @@ import React from "react";
 
 import '../../styling/portfolioValue.css';
 
-function PortfolioValue () 
+function PortfolioValue ({currentValue}) 
 {
 
     return(
-        <div className="portfolioValue-component">
+        <div className="portfolioValue-component"
+             onClick={()=>currentValue("Portfolio")}>
             $3,000
         </div>
     );

@@ -10,6 +10,9 @@ import '../styling/dash.css';
 
 function Dashboard() 
 {
+    // graph title (will be default Portfolio)
+    const [chartTitle, setChartTitle] = useState("default");
+
     // left container
         // stocks
         // options
@@ -27,11 +30,11 @@ function Dashboard()
             </div>
             <div className="dashboard-rightContainer">
 
-                <PortfolioValue/>
+                <PortfolioValue currentValue = {setChartTitle}/>
 
-                <Tickers/>
+                <Tickers currentTicker={setChartTitle}/>
 
-                <p><LineChart/></p>
+                <p><LineChart chartTitle={chartTitle}/></p>
             </div>
         </div>
             );

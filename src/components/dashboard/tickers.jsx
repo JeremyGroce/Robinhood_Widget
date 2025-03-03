@@ -4,7 +4,7 @@ import Arrow from '../../components/dashboard/arrow';
 
 import '../../styling/tickers.css';
 
-function Tickers() 
+function Tickers({currentTicker}) 
 {
     // initialize index tickers
     const [SPYprice, setSPY] = useState(0);
@@ -29,7 +29,8 @@ function Tickers()
         <div className="tickers-component">
 
             {/* SPY index */}
-            <div className="tickers-index">
+            <div className="tickers-index"
+                 onClick={()=> currentTicker("SPY")}>
 
                 <div className="tickers-index-name">
                     <h3>SPY</h3>
@@ -50,7 +51,8 @@ function Tickers()
             </div>
 
             {/* QQQ index */}
-            <div className="tickers-index">
+            <div className="tickers-index"
+                 onClick={()=> currentTicker("QQQ")}>
 
                 <div className="tickers-index-name">
                     <h3>QQQ</h3>
@@ -69,7 +71,8 @@ function Tickers()
                 </div>
             </div>
 
-            <div className="tickers-index">
+            <div className="tickers-index"
+                 onClick={()=>currentTicker("DIA")}>
 
                 <div className="tickers-index-name">
                     <h3>DIA</h3>
