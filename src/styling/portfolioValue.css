@@ -3,10 +3,8 @@
     width: 250px;
     height: 55px;
     background-color: #32d20a;
-    color: white;
 
-    font-family: 'Inter', sans-serif;
-    font-weight: bold;
+    
 
     border-radius: 5px;
 
@@ -24,3 +22,18 @@
     transform: scale(1.10);
     cursor: pointer;
 }
+
+/* for when the delta percent for the daily balance is negative */
+.negative
+{
+    background-color: red;
+}
+
+.portfolioValue-component-values
+{
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    color: white;
+}
+

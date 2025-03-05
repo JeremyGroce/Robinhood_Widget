@@ -11,7 +11,7 @@ import '../styling/dash.css';
 function Dashboard() 
 {
     // graph title (will be default Portfolio)
-    const [chartTitle, setChartTitle] = useState("default");
+    const [chartTitle, setChartTitle] = useState("Portfolio");
 
     // left container
         // stocks
@@ -19,8 +19,6 @@ function Dashboard()
         // crypto
 
     // right container
-        // portfolio value
-        // tickers
         return(
         <div className="dashboard-page">
 

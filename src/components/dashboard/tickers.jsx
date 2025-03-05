@@ -6,6 +6,7 @@ import '../../styling/tickers.css';
 
 function Tickers({currentTicker}) 
 {
+
     // initialize index tickers
     const [SPYprice, setSPY] = useState(0);
     const [QQQprice, setQQQ] = useState(0);
@@ -20,45 +21,60 @@ function Tickers({currentTicker})
     // populate tickers via API calls
     useEffect(()=> 
     {
-        // SPY
-        axios.get('http://localhost:5000/stocks/SPY')
-        .then((response) => 
+        // // SPY
+        // axios.get('http://localhost:5000/stocks/SPY')
+        // .then((response) => 
+        // {
+        //     const value = Number(response.data.price);
+        //     setSPY(value);
+        // })
+        // .catch(error=> 
+        // {
+        //     console.log("|Bad Response: ", error);
+        // }
+        // )
+
+        // // setDelta = 
+
+        // // QQQ
+        // axios.get('http://localhost:5000/stocks/QQQ')
+        // .then((response) => 
+        // {
+        //     const value = Number(response.data.price);
+        //     setQQQ(value);
+        // })
+        // .catch(error=> 
+        // {
+        //     console.log("|Bad Response: ", error);
+        // }
+        // )
+
+        // // DIA
+        // axios.get('http://localhost:5000/stocks/DIA')
+        // .then((response) => 
+        // {
+        //     const value = Number(response.data.price);
+        //     setDIA(value);
+        // })
+        // .catch(error=> 
+        // {
+        //     console.log("|Bad Response: ", error);
+        // }
+        // )
+
+        axios.get('http://localhost:5000/stock/SPY/delta')
+        .then((response)=>
         {
-            const value = Number(response.data.price);
-            setSPY(value);
+            const value = response.data.delta;
+            setSPYdelta(value);
+            setQQQdelta(-value);
+            setDIAdelta(value+2);
         })
-        .catch(error=> 
+        .catch(error=>
         {
-            console.log("|Bad Response: ", error);
+            console.log(error);
         }
         )
-
-        // QQQ
-        axios.get('http://localhost:5000/stocks/QQQ')
-        .then((response) => 
-        {
-            const value = Number(response.data.price);
-            setQQQ(value);
-        })
-        .catch(error=> 
-        {
-            console.log("|Bad Response: ", error);
-        }
-        )
-        axios.get('http://localhost:5000/stocks/DIA')
-        .then((response) => 
-        {
-            const value = Number(response.data.price);
-            setDIA(value);
-        })
-        .catch(error=> 
-        {
-            console.log("|Bad Response: ", error);
-        }
-        )
-
-        // DIA
-
 
 
     },[]);
