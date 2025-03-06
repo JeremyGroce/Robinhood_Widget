@@ -2,9 +2,13 @@ import React, { useEffect, useState } from "react";
 import {Link} from "react-router-dom";
 import axios from "axios";
 
+import HamburgerMenu from "../components/dashboard/menu";
+
 import Tickers from "../components/dashboard/tickers";
 import PortfolioValue from "../components/dashboard/portfolioValue";
 import LineChart from "../components/dashboard/lineGraph";
+
+
 
 import '../styling/dash.css';
 
@@ -23,6 +27,7 @@ function Dashboard()
         <div className="dashboard-page">
 
             <div className="dashboard-leftContainer">
+                <HamburgerMenu/>
                 left container
                 <p>open positions</p>
             </div>

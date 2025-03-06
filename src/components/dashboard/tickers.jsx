@@ -18,63 +18,56 @@ function Tickers({currentTicker})
     const [DIAdelta, setDIAdelta] = useState(0);
 
 
-    // populate tickers via API calls
+    // populate tickers and daily deltas via API calls
     useEffect(()=> 
     {
-        // // SPY
-        // axios.get('http://localhost:5000/stocks/SPY')
-        // .then((response) => 
-        // {
-        //     const value = Number(response.data.price);
-        //     setSPY(value);
-        // })
-        // .catch(error=> 
-        // {
-        //     console.log("|Bad Response: ", error);
-        // }
-        // )
-
-        // // setDelta = 
-
-        // // QQQ
-        // axios.get('http://localhost:5000/stocks/QQQ')
-        // .then((response) => 
-        // {
-        //     const value = Number(response.data.price);
-        //     setQQQ(value);
-        // })
-        // .catch(error=> 
-        // {
-        //     console.log("|Bad Response: ", error);
-        // }
-        // )
-
-        // // DIA
-        // axios.get('http://localhost:5000/stocks/DIA')
-        // .then((response) => 
-        // {
-        //     const value = Number(response.data.price);
-        //     setDIA(value);
-        // })
-        // .catch(error=> 
-        // {
-        //     console.log("|Bad Response: ", error);
-        // }
-        // )
-
-        axios.get('http://localhost:5000/stock/SPY/delta')
-        .then((response)=>
+        // SPY
+        axios.get('http://localhost:5000/stocks/SPY')
+        .then((response) => 
         {
-            const value = response.data.delta;
-            setSPYdelta(value);
-            setQQQdelta(-value);
-            setDIAdelta(value+2);
+            const value = Number(response.data.value);
+            const delta = Number(response.data.delta);
+            setSPY(value);
+            setSPYdelta(delta);
         })
-        .catch(error=>
+        .catch(error=> 
         {
-            console.log(error);
+            console.log("|Bad Response: ", error);
         }
         )
+
+        // setDelta = 
+
+        // QQQ
+        axios.get('http://localhost:5000/stocks/QQQ')
+        .then((response) => 
+        {
+            const value = Number(response.data.value);
+            const delta = response.data.delta;
+            setQQQ(value+15);
+            setQQQdelta(delta-2);
+        })
+        .catch(error=> 
+        {
+            console.log("|Bad Response: ", error);
+        }
+        )
+
+        // DIA
+        axios.get('http://localhost:5000/stocks/DIA')
+        .then((response) => 
+        {
+            const value = Number(response.data.value);
+            const delta = response.data.delta;
+            setDIA(value-20);
+            setDIAdelta(delta-.75);
+        })
+        .catch(error=> 
+        {
+            console.log("|Bad Response: ", error);
+        }
+        )
+
 
 
     },[]);
@@ -92,11 +85,17 @@ function Tickers({currentTicker})
                     <h3>SPY</h3>
                 </div>
 
-                <div className="tickers-index-price">
+                <div 
+                    className="tickers-index-price"
+                    style = {{color: SPYdelta>=0 ? "#32d20a": "red"}}
+                >                    
                     <p>{SPYprice.toFixed(2)}</p>
                 </div>
 
-                <div className="tickers-index-delta">
+                <div 
+                    className="tickers-index-delta"
+                    style = {{color: SPYdelta>=0 ? "#32d20a": "red"}}
+                >  
                     <p>{SPYdelta.toFixed(2)}%</p>
                 </div>
                 
@@ -114,11 +113,18 @@ function Tickers({currentTicker})
                     <h3>QQQ</h3>
                 </div>
 
-                <div className="tickers-index-price">
+                <div 
+                    className="tickers-index-price"
+                    style = {{color: QQQdelta>=0 ? "#32d20a": "red"}}    
+                >
                     <p>{QQQprice.toFixed(2)}</p>
                 </div>
 
-                <div className="tickers-index-delta">
+                <div 
+                    className="tickers-index-delta"
+                    style = {{color: QQQdelta>=0 ? "#32d20a": "red"}
+                }
+                >
                     <p>{QQQdelta.toFixed(2)}%</p>
                 </div>
                 
@@ -127,6 +133,7 @@ function Tickers({currentTicker})
                 </div>
             </div>
 
+            {/* DIA index */}
             <div className="tickers-index"
                  onClick={()=>currentTicker("DIA")}>
 
@@ -134,11 +141,17 @@ function Tickers({currentTicker})
                     <h3>DIA</h3>
                 </div>
 
-                <div className="tickers-index-price">
+                <div 
+                    className="tickers-index-price"
+                    style = {{color: DIAdelta>=0 ? "#32d20a": red}}
+                >
                     <p>{DIAprice.toFixed(2)}</p>
                 </div>
 
-                <div className="tickers-index-delta">
+                <div 
+                    className="tickers-index-delta"
+                    style = {{color: DIAdelta>=0 ? "#32d20a": red}}
+                >
                     <p>{DIAdelta.toFixed(2)}%</p>
                 </div>
                 

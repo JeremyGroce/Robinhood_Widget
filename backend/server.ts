@@ -40,21 +40,19 @@ app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
 
-// stock API call
-app.get('/stocks/:symbol', async (req: Request, res: Response) =>
+// sample API data
+app.get('/stocks/:symbol', async (req: Request, res:Response) =>
 {
     const {symbol} = req.params;
-    const url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=${API_KEY}`;
-    console.log("request made for: ", symbol);
+    console.log("|Request made for: ", symbol);
+    const value = 150;
+    const delta = 1.5;
 
-}   
+    res.status(200).json({value: value, delta: delta});
+});
 
-);
-
-// temporary route to get fake deltas
-app.get('/stock/:symbol/delta', async (req: Request, res: Response) =>
+// sample chart data
+app.get('/stocks/:symbol', async (req: Request, res: response) =>
 {
-    const {symbol} = req.params;
-    console.log("|Delta Request for: ", symbol);
-    res.status(200).json({delta: 1.5});
+
 });

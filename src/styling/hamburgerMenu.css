@@ -1,0 +1,17 @@
+.hamburger-component
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    height: 35px;
+    width: 35px;
+}
+
+.hamburger-component-line
+{
+    background-color: black;
+    height: 5px;
+    width: 35px;
+    border-radius: 5px;
+}
