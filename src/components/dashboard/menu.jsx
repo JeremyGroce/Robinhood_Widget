@@ -1,24 +1,26 @@
-import React from "react";
+import {React, useState} from "react";
 
 import '../../styling/HamburgerMenu.css'
 
 function HamburgerMenu() 
 {
-   return (
-    <div className="hamburger-component">
-        {/* line */}
-        <div className="hamburger-component-line"></div>
-        {/* line */}
-        <div className="hamburger-component-line"></div>
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <div 
+            className={`hamburger-component ${isOpen ? "open":  ""}`}
+            onClick={()=> setIsOpen(!isOpen)}    
+        >
+    
+        {/* create array of lines */}
+        {[...Array(6)].map((_,index)=> (
+            <div key={index}></div> 
+        ))}
 
 
-        {/* line */}
-        <div className="hamburger-component-line"></div>
 
-
-    </div>
-
-   ) ;
+        </div>
+    );
 
 }
 

@@ -1,17 +1,118 @@
+/* hamburger when not clicked */
 .hamburger-component
 {
+    width: 40px;
+    height: 30px;
+
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    height: 35px;
-    width: 35px;
+
+    justify-content: space-between;
+    cursor: pointer;
 }
 
-.hamburger-component-line
-{
-    background-color: black;
-    height: 5px;
-    width: 35px;
-    border-radius: 5px;
+.hamburger-component div{
+    position: absolute;
+    height: 6px;
+    width: 50%;
+    background: black;
 }
+
+.hamburger-component div:nth-child(even)
+{
+    align-self: flex-end;
+    border-radius: 0 5px 5px 0;
+    transition: 0.2s;
+}
+
+.hamburger-component div:nth-child(odd)
+{
+    align-self: flex-start;
+    border-radius: 5px 0 0 5px;
+    transition: 0.2s;
+
+
+
+}
+
+.hamburger-component div:nth-child(1), .hamburger-component div:nth-child(2)
+{
+    top: 0px;
+}
+
+.hamburger-component div:nth-child(3), .hamburger-component div:nth-child(4)
+{
+    top: 40%;
+}
+
+.hamburger-component div:nth-child(5), .hamburger-component div:nth-child(6)
+{
+    bottom: 0px;
+}
+
+/* -------When clicked------- */
+
+.hamburger-component.open div:nth-child(1), .hamburger-component.open div:nth-child(6)
+{
+    
+    transform: rotate(45deg);
+    transition: 0.2s;
+}
+
+.hamburger-component.open div:nth-child(2), .hamburger-component.open div:nth-child(5)
+{
+    transform: rotate(-45deg);
+    transition: 0.2s;
+}
+
+.hamburger-component.open div:nth-child(3)
+{
+    transition: 0.2s;
+    transform: translateX(-100%);
+    opacity: 0%;
+}
+
+.hamburger-component.open div:nth-child(4)
+{
+    transition: 0.2s;
+    opacity: 0%;
+    transform: translateX(100%);
+}
+
+.hamburger-component.open div:nth-child(1)
+{
+    left: 5px; 
+    top: 7px;
+}
+
+.hamburger-component.open div:nth-child(2) 
+{
+    left: calc(50% - 5px);
+    top: 7px;
+}
+  
+ .hamburger-component.open div:nth-child(3) 
+ {
+    left: -50%;
+    opacity: 0;
+}
+  
+.hamburger-component.open div:nth-child(4) 
+{
+    left: 100%;
+    opacity: 0;
+}
+
+.hamburger-component.open div:nth-child(5) 
+{
+    left: 5px;
+    top: 17px;
+}
+  
+.hamburger-component.open div:nth-child(6) 
+{
+    left: calc(50% - 5px);
+    bottom: 6px;
+}
+
