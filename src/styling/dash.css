@@ -9,6 +9,13 @@
     gap: 10px;
 }
 
+.dashboard-topContainer
+{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
 .dashboard-rightContainer
 {
     display: flex;

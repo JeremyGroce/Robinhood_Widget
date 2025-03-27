@@ -17,20 +17,25 @@ function Dashboard()
     // graph title (will be default Portfolio)
     const [chartTitle, setChartTitle] = useState("Portfolio");
 
-    // left container
-        // stocks
-        // options
-        // crypto
 
-    // right container
+    
+
         return(
         <div className="dashboard-page">
 
-            <div className="dashboard-leftContainer">
+            {/* Top Container */}
+            <div className="dashboard-topContainer">
                 <HamburgerMenu/>
+
+            </div>
+
+            {/* Left Container*/}
+            <div className="dashboard-leftContainer">
                 left container
                 <p>open positions</p>
             </div>
+
+            {/* Right Container */}
             <div className="dashboard-rightContainer">
 
                 <PortfolioValue currentValue = {setChartTitle}/>
